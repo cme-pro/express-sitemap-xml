@@ -124,16 +124,16 @@ For example, if you want to add multi language alternate attributes, you can do
   lastmod: new Date('2000-02-02'),
   changefreq: 'weekly',
   priority: 0.5,
-  'html.link': [
+  'xhtml:link': [
     {
       '@rel': 'alternate',
       '@hreflang': 'fr',
-      '#text': 'https://bitmidi.com/1?lang=fr', // we repeat the url here as you may have a different subdomain for this
+      '@href': 'https://bitmidi.com/1?lang=fr', // we repeat the url here as you may have a different subdomain for this
     },
     {
       '@rel': 'alternate',
       '@hreflang': 'es',
-      '#text': 'https://bitmidi.com/1?lang=es',
+      '@href': 'https://bitmidi.com/1?lang=es',
     }
   ]
 }

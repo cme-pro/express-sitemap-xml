@@ -40,16 +40,16 @@ test('usage with all options', t => {
       url: '/1',
       lastmod: '2000-01-01',
       changefreq: 'daily',
-      'html.link': [
+      'xhtml:link': [
         {
           '@rel': 'alternate',
           '@hreflang': 'fr',
-          '#text': 'https://bitmidi.com/1?lang=fr'
+          '@href': 'https://bitmidi.com/1?lang=fr'
         },
         {
           '@rel': 'alternate',
           '@hreflang': 'es',
-          '#text': 'https://bitmidi.com/1?lang=es'
+          '@href': 'https://bitmidi.com/1?lang=es'
         }
       ]
     },
@@ -57,16 +57,16 @@ test('usage with all options', t => {
       url: '/2',
       lastmod: new Date('2000-02-02'),
       changefreq: 'weekly',
-      'html.link': [
+      'xhtml:link': [
         {
           '@rel': 'alternate',
           '@hreflang': 'fr',
-          '#text': 'https://bitmidi.com/2?lang=fr'
+          '@href': 'https://bitmidi.com/2?lang=fr'
         },
         {
           '@rel': 'alternate',
           '@hreflang': 'es',
-          '#text': 'https://bitmidi.com/2?lang=es'
+          '@href': 'https://bitmidi.com/2?lang=es'
         }
       ]
     },
@@ -84,15 +84,15 @@ test('usage with all options', t => {
         <url>
           <loc>https://bitmidi.com/1</loc>
           <lastmod>2000-01-01</lastmod>
-          <html.link rel="alternate" hreflang="fr">https://bitmidi.com/1?lang=fr</html.link>
-          <html.link rel="alternate" hreflang="es">https://bitmidi.com/1?lang=es</html.link>
+          <xhtml:link rel="alternate" hreflang="fr" href="https://bitmidi.com/1?lang=fr"/>
+          <xhtml:link rel="alternate" hreflang="es" href="https://bitmidi.com/1?lang=es"/>
           <changefreq>daily</changefreq>
         </url>
         <url>
           <loc>https://bitmidi.com/2</loc>
           <lastmod>2000-02-02</lastmod>
-          <html.link rel="alternate" hreflang="fr">https://bitmidi.com/2?lang=fr</html.link>
-          <html.link rel="alternate" hreflang="es">https://bitmidi.com/2?lang=es</html.link>
+          <xhtml:link rel="alternate" hreflang="fr" href="https://bitmidi.com/2?lang=fr"/>
+          <xhtml:link rel="alternate" hreflang="es" href="https://bitmidi.com/2?lang=es"/>
           <changefreq>weekly</changefreq>
         </url>
         <url>
