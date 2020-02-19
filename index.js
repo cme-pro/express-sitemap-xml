@@ -83,31 +83,35 @@ function buildSitemapIndex (sitemaps, base) {
 }
 
 function buildSitemap (urls, base) {
-  const urlObjs = urls.map(url => {
-    if (typeof url === 'string') {
+  const urlObjs = urls.map(pageUrl => {
+    if (typeof pageUrl === 'string') {
       return {
-        loc: toAbsolute(url, base),
+        loc: toAbsolute(pageUrl, base),
         lastmod: getTodayStr()
       }
     }
 
-    if (typeof url.url !== 'string') {
+    if (typeof pageUrl.url !== 'string') {
       throw new Error(
-        `Invalid sitemap url object, missing 'url' property: ${JSON.stringify(url)}`
+        `Invalid sitemap url object, missing 'url' property: ${JSON.stringify(pageUrl)}`
       )
     }
 
+    const { url, changefreq, priority, lastmod, ...rest } = pageUrl
+
     const urlObj = {
-      loc: toAbsolute(url.url, base),
-      lastmod: (url.lastmod && dateToString(url.lastmod)) || getTodayStr()
+      loc: toAbsolute(url, base),
+      lastmod: (lastmod && dateToString(lastmod)) || getTodayStr(),
+      ...rest
     }
 
-    if (typeof url.changefreq === 'string') {
-      urlObj.changefreq = url.changefreq
+    if (typeof changefreq === 'string') {
+      urlObj.changefreq = changefreq
     }
-    if (typeof url.priority === 'number') {
+    if (typeof priority === 'number') {
       urlObj.priority = priority
     }
+
     return urlObj
   })
 

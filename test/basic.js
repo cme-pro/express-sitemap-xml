@@ -38,13 +38,37 @@ test('usage with all options', t => {
   const urls = [
     {
       url: '/1',
-      lastMod: '2000-01-01',
-      changeFreq: 'daily'
+      lastmod: '2000-01-01',
+      changefreq: 'daily',
+      'html.link': [
+        {
+          '@rel': 'alternate',
+          '@hreflang': 'fr',
+          '#text': 'https://bitmidi.com/1?lang=fr'
+        },
+        {
+          '@rel': 'alternate',
+          '@hreflang': 'es',
+          '#text': 'https://bitmidi.com/1?lang=es'
+        }
+      ]
     },
     {
       url: '/2',
-      lastMod: new Date('2000-02-02'),
-      changeFreq: 'weekly'
+      lastmod: new Date('2000-02-02'),
+      changefreq: 'weekly',
+      'html.link': [
+        {
+          '@rel': 'alternate',
+          '@hreflang': 'fr',
+          '#text': 'https://bitmidi.com/2?lang=fr'
+        },
+        {
+          '@rel': 'alternate',
+          '@hreflang': 'es',
+          '#text': 'https://bitmidi.com/2?lang=es'
+        }
+      ]
     },
     {
       url: '/3'
@@ -60,11 +84,15 @@ test('usage with all options', t => {
         <url>
           <loc>https://bitmidi.com/1</loc>
           <lastmod>2000-01-01</lastmod>
+          <html.link rel="alternate" hreflang="fr">https://bitmidi.com/1?lang=fr</html.link>
+          <html.link rel="alternate" hreflang="es">https://bitmidi.com/1?lang=es</html.link>
           <changefreq>daily</changefreq>
         </url>
         <url>
           <loc>https://bitmidi.com/2</loc>
           <lastmod>2000-02-02</lastmod>
+          <html.link rel="alternate" hreflang="fr">https://bitmidi.com/2?lang=fr</html.link>
+          <html.link rel="alternate" hreflang="es">https://bitmidi.com/2?lang=es</html.link>
           <changefreq>weekly</changefreq>
         </url>
         <url>
